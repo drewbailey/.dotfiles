@@ -1,0 +1,6 @@
+# Productivity
+alias todo='vim ~/.todo'
+alias notes='vim ~/.notes'
+alias git_clean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+
+

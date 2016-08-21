@@ -1,0 +1,123 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "725b8aa0-5ba2-4be0-a8fa-84a7bdc46850"
+  "atom-ctags":
+    GotoSymbolClick: "middle click"
+    autoBuildTagsWhenActive: true
+  "atom-material-ui":
+    colors: {}
+    fonts:
+      fontSize: 15
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      animations: false
+      panelContrast: true
+      panelShadows: true
+  "atom-typescript": {}
+  "autoclose-html":
+    forceInline: [
+      "title"
+      "h1"
+      "h2"
+      "h3"
+      "h4"
+      "h5"
+      "h6"
+      "p"
+      "span"
+    ]
+  "autocomplete-ctags": {}
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+  "autocomplete-ruby": {}
+  core:
+    disabledPackages: [
+      "symbols-view"
+    ]
+    excludeVcsIgnoredPaths: false
+    followSymlinks: false
+    ignoredNames: [
+      ".tag"
+      ".tags"
+      ".tags1"
+      ".tag1"
+      ".git"
+      ".cache"
+    ]
+    openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "rails-snippets"
+    ]
+    themes: [
+      "atom-material-ui"
+      "one-dark-syntax"
+    ]
+  editor:
+    fontFamily: "Source Code Pro"
+    fontSize: 12
+    invisibles: {}
+    lineHeight: 1.2
+    preferredLineLength: 120
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    zoomFontWhenCtrlScrolling: true
+  "exception-reporting":
+    userId: "3321054d-6327-4637-50e9-8d6f35f40dc1"
+  linter:
+    showErrorPanel: false
+  "linter-erb": {}
+  "linter-ruby": {}
+  "one-dark-ui": {}
+  preview: {}
+  react:
+    enabledForAllJavascriptFiles: true
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
+  tabs:
+    usePreviewTabs: true
+  "todo-show": {}
+  "tree-view": {}
+  "vim-mode": {}
+  welcome:
+    showOnStartup: false
+".angular.html.text":
+  editor:
+    preferredLineLength: 120
+".coffee.jsx.source":
+  editor:
+    preferredLineLength: 120
+".cucumber.rspec.ruby.source.steps":
+  editor:
+    preferredLineLength: 120
+".erb.html.text":
+  editor:
+    preferredLineLength: 120
+".feature.gherkin.text":
+  editor:
+    preferredLineLength: 120
+".js.jsx.source":
+  editor:
+    preferredLineLength: 120
+".preview":
+  editor:
+    preferredLineLength: 120
+".ruby.source":
+  editor:
+    preferredLineLength: 120
+".source.ts":
+  editor:
+    autoIndent: true
+    preferredLineLength: 120
+".source.tsx":
+  editor:
+    preferredLineLength: 120
+

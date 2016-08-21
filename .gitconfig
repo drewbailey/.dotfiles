@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Drew Bailey
+#	email = drew.bailey@excella.com
+[user]
+	email = drewbailey5@gmail.com
+	signingkey = 1F306FEE63B46D78
+[core]
+	editor = vim
+[alias]
+	lg = log --color --graph\n--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold\nblue)<%an>%Creset' --abbrev-commit
+
