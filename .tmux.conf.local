@@ -1,0 +1,5 @@
+# Add your local tmux config here
+#set-option -g default-terminal screen-256color
+set -g default-terminal "xterm-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+bind -n C-b clear-history
