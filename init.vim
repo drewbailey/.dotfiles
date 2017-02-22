@@ -1,3 +1,5 @@
+" This is a port of my vimrc for neovim it belongs in ~./config/nvim/init.vim
+
 " don't bother with vi compatibility
 set nocompatible
 " enable syntax highlighting
