@@ -21,7 +21,6 @@ if (&t_Co == 256 || has('gui_running'))
     " let g:seoul256_background = 256
     " colorscheme pencil
     " let g:onedark_termcolors=256
-    set guifont=Operator\ Mono\ Book:h14
   else
     set termguicolors
     syntax enable

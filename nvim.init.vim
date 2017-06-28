@@ -11,9 +11,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles"))
+if filereadable(expand("~/.vimrc.bundles.neovim"))
   source ~/.vimrc.bundles.neovim
-  source ~/.vimrc.bundles.local
 endif
 
 call vundle#end()
@@ -128,4 +127,7 @@ if filereadable(expand("~/.vimrc.local"))
   " colorscheme OceanicNext
 endif
 
-
+set termguicolors
+syntax on
+set background=dark
+colorscheme onedark
