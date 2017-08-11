@@ -9,3 +9,5 @@ set -sg escape-time 0
 # enable true color support and italics
 set -g default-terminal "xterm-256color"
 # set -ga terminal-overrides ",xterm-256color-italic:Tc"
+set-option -g history-limit 4000
+set-option -s escape-time 10

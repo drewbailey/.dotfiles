@@ -1,3 +1,48 @@
+augroup ts
+  autocmd!
+  autocmd FileType typescript JsPreTmpl html
+  " autocmd FileType typescript syn clear foldBraces
+augroup END
+
+augroup go
+  autocmd!
+
+  " Show by default 4 spaces for a tab
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+  " :GoBuild and :GoTestCompile
+  autocmd FileType go nmap <leader>b :GoBuild<CR>
+  autocmd FileType go nmap <leader>c :GoMetaLinter<CR>
+
+  " " :GoTest
+  autocmd FileType go nmap <leader>t  :GoTest<CR>
+
+  " " :GoRun
+  " " autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+  " " :GoDoc
+  " autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+
+  " " :GoCoverageToggle
+  " " autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+  " " :GoInfo
+  " autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+  " " :GoMetaLinter
+  " " autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+
+  " " :GoDef but opens in a vertical split
+  " autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+  " " :GoDef but opens in a horizontal split
+  " autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+
+  " :GoAlternate  commands :A, :AV, :AS and :AT
+  " autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  " autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  " autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  " autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
 
 " keyboard shortcuts
 inoremap jj <ESC>
@@ -11,8 +56,10 @@ if (&t_Co == 256 || has('gui_running'))
   if ($TERM_PROGRAM == 'iTerm.app')
     set termguicolors
     syntax on
-    set background=dark
-    colorscheme onedark
+    set background=light
+    colorscheme solarized
+    " set background=dark
+    " colorscheme onedark
     " colorscheme seoul256
     " colorscheme space-vim-dark
     " let g:airline_theme='violet'
@@ -24,9 +71,11 @@ if (&t_Co == 256 || has('gui_running'))
   else
     set termguicolors
     syntax enable
-    set background=dark
-    "colorscheme desert
-    colorscheme onedark
+    set background=light
+    colorscheme solarized
+    " set background=dark
+    " "colorscheme desert
+    " colorscheme onedark
     " colorscheme space-vim-dark
     " let g:airline_theme='violet'
     " colorscheme OceanicNext
@@ -69,18 +118,25 @@ set ttyfast
 " set lazyredraw
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_typescript_checkers = ['tslint', 'tsuquyomi']
+let g:syntastic_aggregate_errors = 1
+
+" go things
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+let g:go_fmt_command = "goimports"
+" /go things
+
 set foldmethod=syntax
 set foldlevelstart=99
-let javaScript_fold=1         " JavaScript
-set foldcolumn=2
-highlight Comment gui=italic cterm=italic
-highlight htmlArg gui=italic cterm=italic
-highlight xmlAttrib gui=italic cterm=italic
-" highlight xmlTag gui=italic cterm=italic
-
-function! SynStack()
-    if !exists("*synstack")
-        return
-    endif
-    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+set autowrite

@@ -7,7 +7,9 @@
 	email = drewbailey5@gmail.com
 	signingkey = 1F306FEE63B46D78
 [core]
-	editor = vim
+	editor = nvim
 [alias]
 	lg = log --color --graph\n--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold\nblue)<%an>%Creset' --abbrev-commit
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/

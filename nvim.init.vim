@@ -127,7 +127,14 @@ if filereadable(expand("~/.vimrc.local"))
   " colorscheme OceanicNext
 endif
 
-set termguicolors
+filetype off
+filetype plugin indent off
+filetype plugin indent on
+
 syntax on
-set background=dark
-colorscheme onedark
+set termguicolors
+" set background=dark
+" colorscheme onedark
+set background=light
+colorscheme solarized8_light
+let g:airline_theme='solarized'
