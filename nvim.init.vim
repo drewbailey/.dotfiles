@@ -131,6 +131,8 @@ filetype off
 filetype plugin indent off
 filetype plugin indent on
 
+tnoremap <Esc> <C-\><C-n>
+
 syntax on
 set termguicolors
 " set background=dark
@@ -138,3 +140,20 @@ set termguicolors
 set background=light
 colorscheme solarized8_light
 let g:airline_theme='solarized'
+
+function! LightTheme()
+  syntax on
+  set termguicolors
+  " set background=dark
+  " colorscheme onedark
+  set background=light
+  colorscheme solarized8_light
+  let g:airline_theme='solarized'
+endfunction
+
+function! DarkTheme()
+  syntax on
+  set termguicolors
+  set background=dark
+  colorscheme onedark
+endfunction
