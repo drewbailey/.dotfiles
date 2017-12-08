@@ -4,12 +4,36 @@
 #	name = Drew Bailey
 #	email = drew.bailey@excella.com
 [user]
-	email = drewbailey5@gmail.com
-	signingkey = 1F306FEE63B46D78
+	email = drew.bailey@stitchfix.com
+	signingkey = F00F1E0CEC4C8B42
+	name = Drew Bailey
 [core]
 	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/andrewbailey/.gitignore_global
 [alias]
 	lg = log --color --graph\n--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold\nblue)<%an>%Creset' --abbrev-commit
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[color]
+	ui = true
+; [color "diff-highlight"]
+; 	oldNormal = red bold
+; 	oldHighlight = red bold 52
+; 	newNormal = green bold
+; 	newHighlight = green bold 22
+; [color "diff"]
+; 	meta = 227
+; 	frag = magenta bold
+; 	commit = 227 bold
+; 	old = red bold
+; 	new = green bold
+; 	whitespace = red reverse
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	gpgsign = true

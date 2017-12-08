@@ -127,6 +127,9 @@ if filereadable(expand("~/.vimrc.local"))
   " colorscheme OceanicNext
 endif
 
+" fzf thing
+set rtp+=/usr/local/opt/fzf
+
 filetype off
 filetype plugin indent off
 filetype plugin indent on
@@ -138,8 +141,12 @@ set termguicolors
 " set background=dark
 " colorscheme onedark
 set background=light
-colorscheme solarized8_light
-let g:airline_theme='solarized'
+colorscheme nord
+let g:airline_theme='nord'
+let g:nord_comment_brightness=20
+
+" colorscheme solarized8_light
+" let g:airline_theme='solarized'
 
 function! LightTheme()
   syntax on
@@ -156,4 +163,29 @@ function! DarkTheme()
   set termguicolors
   set background=dark
   colorscheme onedark
+  let g:airline_theme='onedark'
+endfunction
+
+function! DarkOneTheme()
+  syntax on
+  set termguicolors
+  colorscheme one
+  set background=dark
+  let g:airline_theme='one'
+endfunction
+
+function! LightOneTheme()
+  syntax on
+  set termguicolors
+  colorscheme one
+  set background=light
+  let g:airline_theme='one'
+endfunction
+
+function! NordTheme()
+  syntax on
+  set termguicolors
+  colorscheme nord
+  let g:airline_theme='nord'
+  let g:nord_comment_brightness=20
 endfunction
