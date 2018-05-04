@@ -4,18 +4,80 @@ set nocompatible
 " enable syntax highlighting
 syntax enable
 
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'VundleVim/Vundle.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'austintaylor/vim-indentobject'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'majutsushi/tagbar'
+Plug 'rking/ag.vim'
+Plug 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'pangloss/vim-javascript'
+Plug 'wookiehangover/jshint.vim'
+Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-pastie'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vividchalk'
+Plug 'eventualbuddha/vim-protobuf'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/greplace.vim'
+Plug 'vim-scripts/matchit.zip'
+
+Plug 'jdkanani/vim-material-theme'
+Plug 'Valloric/YouCompleteMe'
+Plug 'w0ng/vim-hybrid'
+Plug 'alvan/vim-closetag'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'janko-m/vim-test'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jiangmiao/auto-pairs'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'junegunn/seoul256.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'albertorestifo/github.vim'
+Plug 'fatih/vim-go'
+Plug 'lifepillar/vim-solarized8'
+Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
+Plug 'sebdah/vim-delve'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'drewtempelmeyer/palenight.vim'
+call plug#end()
+
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 
-" install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles.neovim"))
-  source ~/.vimrc.bundles.neovim
-endif
+" " install Vundle bundles
+" if filereadable(expand("~/.vimrc.bundles.neovim"))
+"   source ~/.vimrc.bundles.neovim
+" endif
 
-call vundle#end()
+" call vundle#end()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
@@ -145,8 +207,14 @@ colorscheme nord
 let g:airline_theme='nord'
 let g:nord_comment_brightness=20
 
+" set background=dark
+" colorscheme palenight
+" let g:airline_theme='quantum'
+" let g:palenight_terminal_italics=1
 " colorscheme solarized8_light
 " let g:airline_theme='solarized'
+
+set nocursorline
 
 function! LightTheme()
   syntax on
@@ -188,4 +256,19 @@ function! NordTheme()
   colorscheme nord
   let g:airline_theme='nord'
   let g:nord_comment_brightness=20
+endfunction
+
+function! MaterialTheme()
+  set background=dark
+  set termguicolors
+  colorscheme quantum
+  let g:airline_theme='quantum'
+endfunction
+
+function! PaleNight()
+  set background=dark
+  set termguicolors
+  colorscheme palenight
+  let g:airline_theme='quantum'
+  let g:palenight_terminal_italics=1
 endfunction
