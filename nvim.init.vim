@@ -21,7 +21,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
-Plug 'wookiehangover/jshint.vim'
+" Plug 'wookiehangover/jshint.vim'
 Plug 'scrooloose/nerdtree'
 " Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
@@ -64,6 +64,8 @@ Plug 'w0rp/ale'
 Plug 'sebdah/vim-delve'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'mxw/vim-jsx'
+Plug 'jacoborus/tender.vim'
 call plug#end()
 
 " configure Vundle
@@ -202,11 +204,17 @@ syntax on
 set termguicolors
 " set background=dark
 " colorscheme onedark
-set background=light
-colorscheme nord
-let g:airline_theme='nord'
-let g:nord_comment_brightness=20
+" set background=light
+" colorscheme nord
+" let g:airline_theme='nord'
+" let g:nord_comment_brightness=20
 
+" set background=dark
+" colorscheme onedark
+set background=light
+colorscheme solarized8_light
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='light'
 " set background=dark
 " colorscheme palenight
 " let g:airline_theme='quantum'
@@ -224,6 +232,7 @@ function! LightTheme()
   set background=light
   colorscheme solarized8_light
   let g:airline_theme='solarized'
+  let g:airline_solarized_bg='light'
 endfunction
 
 function! DarkTheme()
@@ -272,3 +281,15 @@ function! PaleNight()
   let g:airline_theme='quantum'
   let g:palenight_terminal_italics=1
 endfunction
+
+function! Tender()
+  set background=dark
+  set termguicolors
+  colorscheme tender
+  let g:airline_theme='tender'
+endfunction
+
+" vim-go things
+set nocursorcolumn
+syntax sync minlines=256
+set re=1
