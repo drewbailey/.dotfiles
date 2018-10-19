@@ -66,6 +66,7 @@ Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'mxw/vim-jsx'
 Plug 'jacoborus/tender.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " configure Vundle
@@ -115,6 +116,13 @@ if exists('$TMUX')  " Support resizing in tmux
   " set ttymouse=xterm2
 endif
 
+function TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfunction
+command! TrimWhitespace call TrimWhitespace()
+
 " keyboard shortcuts
 let mapleader = ','
 noremap <C-h> <C-w>h
@@ -129,11 +137,12 @@ nnoremap <leader>f :NERDTreeFind<CR>
 nnoremap <leader>t :CtrlP<CR>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>] :TagbarToggle<CR>
-nnoremap <leader><space> :call whitespace#strip_trailing()<CR>
+nnoremap <leader><space> :call TrimWhitespace()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
+
 
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
@@ -211,10 +220,15 @@ set termguicolors
 
 " set background=dark
 " colorscheme onedark
-set background=light
-colorscheme solarized8_light
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='light'
+set background=dark
+let g:gruvbox_contrast_dark='soft'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
+
+" set background=light
+" colorscheme solarized8_light
+" let g:airline_theme='solarized'
+" let g:airline_solarized_bg='light'
 " set background=dark
 " colorscheme palenight
 " let g:airline_theme='quantum'
@@ -224,7 +238,7 @@ let g:airline_solarized_bg='light'
 
 set nocursorline
 
-function! LightTheme()
+function! ThemeLight()
   syntax on
   set termguicolors
   " set background=dark
@@ -235,7 +249,7 @@ function! LightTheme()
   let g:airline_solarized_bg='light'
 endfunction
 
-function! DarkTheme()
+function! ThemeDark()
   syntax on
   set termguicolors
   set background=dark
@@ -243,7 +257,7 @@ function! DarkTheme()
   let g:airline_theme='onedark'
 endfunction
 
-function! DarkOneTheme()
+function! ThemeDarkOne()
   syntax on
   set termguicolors
   colorscheme one
@@ -251,7 +265,7 @@ function! DarkOneTheme()
   let g:airline_theme='one'
 endfunction
 
-function! LightOneTheme()
+function! ThemeLightOne()
   syntax on
   set termguicolors
   colorscheme one
@@ -259,22 +273,21 @@ function! LightOneTheme()
   let g:airline_theme='one'
 endfunction
 
-function! NordTheme()
+function! ThemeNord()
   syntax on
   set termguicolors
+  " let g:airline_theme='nord'
   colorscheme nord
-  let g:airline_theme='nord'
-  let g:nord_comment_brightness=20
 endfunction
 
-function! MaterialTheme()
+function! ThemeMaterial()
   set background=dark
   set termguicolors
   colorscheme quantum
   let g:airline_theme='quantum'
 endfunction
 
-function! PaleNight()
+function! ThemePaleNight()
   set background=dark
   set termguicolors
   colorscheme palenight
@@ -282,14 +295,32 @@ function! PaleNight()
   let g:palenight_terminal_italics=1
 endfunction
 
-function! Tender()
+function! ThemeTender()
   set background=dark
   set termguicolors
   colorscheme tender
   let g:airline_theme='tender'
 endfunction
 
+function! ThemeGruvDark()
+  set background=dark
+  set termguicolors
+  colorscheme gruvbox
+  let g:airline_theme='gruvbox'
+endfunction
+
 " vim-go things
 set nocursorcolumn
 syntax sync minlines=256
 set re=1
+
+
+" Airline Settings
+let g:airline_highlighting_cache = 1
+
+let g:airline#extensions#tabline#enabled       = 1
+let g:airline#extensions#tabline#show_buffers  = 1
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#close_symbol  = '×'
+let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
+let g:airline#extensions#tabline#tab_nr_type   = 1
