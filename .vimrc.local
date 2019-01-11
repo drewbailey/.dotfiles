@@ -1,8 +1,3 @@
-augroup ts
-  autocmd!
-  autocmd FileType typescript JsPreTmpl html
-  " autocmd FileType typescript syn clear foldBraces
-augroup END
 
 augroup go
   autocmd!
@@ -15,7 +10,7 @@ augroup go
   " :GoBuild and :GoTestCompile
   autocmd FileType go nmap <leader>b :GoBuild<CR>
   autocmd FileType go nmap <leader>c :GoMetaLinter<CR>
-  let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
+  " let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
   " " :GoTest
   " autocmd FileType go nmap <leader>t  :GoTest<CR>
 
@@ -136,9 +131,11 @@ let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_autosave_enabled = ['vet', 'golint']
 " let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint', 'go']
-" set completeopt-=preview
-let g:go_list_autoclose = 0
-let g:go_list_type = "locationlist"
+set completeopt-=preview
+" let g:go_list_autoclose = 0
+let g:go_list_type = "quicklist"
+
+
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 let g:go_fmt_command = "goimports"
 " /go things

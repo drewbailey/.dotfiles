@@ -16,14 +16,13 @@ Plug 'austintaylor/vim-indentobject'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
-Plug 'garbas/vim-snipmate'
 Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
-" Plug 'wookiehangover/jshint.vim'
 Plug 'scrooloose/nerdtree'
-" Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
@@ -35,18 +34,13 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vividchalk'
-Plug 'eventualbuddha/vim-protobuf'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/Align'
-Plug 'vim-scripts/greplace.vim'
-Plug 'vim-scripts/matchit.zip'
 
 Plug 'jdkanani/vim-material-theme'
-Plug 'Valloric/YouCompleteMe'
 Plug 'w0ng/vim-hybrid'
 Plug 'alvan/vim-closetag'
 Plug 'joshdick/onedark.vim'
-Plug 'sheerun/vim-polyglot'
 Plug 'janko-m/vim-test'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -55,7 +49,10 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'albertorestifo/github.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -64,9 +61,11 @@ Plug 'w0rp/ale'
 Plug 'sebdah/vim-delve'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'mxw/vim-jsx'
 Plug 'jacoborus/tender.vim'
 Plug 'morhetz/gruvbox'
+Plug 'mhartington/oceanic-next'
+Plug 'kaicataldo/material.vim'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " configure Vundle
@@ -209,32 +208,7 @@ filetype plugin indent on
 
 tnoremap <Esc> <C-\><C-n>
 
-syntax on
-set termguicolors
-" set background=dark
-" colorscheme onedark
-" set background=light
-" colorscheme nord
-" let g:airline_theme='nord'
-" let g:nord_comment_brightness=20
 
-" set background=dark
-" colorscheme onedark
-set background=dark
-let g:gruvbox_contrast_dark='soft'
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
-
-" set background=light
-" colorscheme solarized8_light
-" let g:airline_theme='solarized'
-" let g:airline_solarized_bg='light'
-" set background=dark
-" colorscheme palenight
-" let g:airline_theme='quantum'
-" let g:palenight_terminal_italics=1
-" colorscheme solarized8_light
-" let g:airline_theme='solarized'
 
 set nocursorline
 
@@ -244,7 +218,7 @@ function! ThemeLight()
   " set background=dark
   " colorscheme onedark
   set background=light
-  colorscheme solarized8_light
+  colorscheme solarized8_high
   let g:airline_theme='solarized'
   let g:airline_solarized_bg='light'
 endfunction
@@ -276,7 +250,9 @@ endfunction
 function! ThemeNord()
   syntax on
   set termguicolors
-  " let g:airline_theme='nord'
+  set background=dark
+  let g:airline_theme='nord'
+  let g:nord_comment_brightness = 20
   colorscheme nord
 endfunction
 
@@ -308,6 +284,38 @@ function! ThemeGruvDark()
   colorscheme gruvbox
   let g:airline_theme='gruvbox'
 endfunction
+
+function! ThemeOceanic()
+    " For Neovim 0.1.3 and 0.1.4
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+  " Or if you have Neovim >= 0.1.5
+  if (has("termguicolors"))
+   set termguicolors
+  endif
+
+  " Theme
+  syntax enable
+  colorscheme OceanicNext
+  let g:airline_theme='oceanicnext'
+endfunction
+
+function! ThemeMaterial()
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set background=dark
+  colorscheme material 
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+  let g:material_theme_style = 'default'
+  let g:airline_theme = 'material'
+endfunction
+
+
+" CURRENT THEME
+"
+call ThemeNord()
+
 
 " vim-go things
 set nocursorcolumn
