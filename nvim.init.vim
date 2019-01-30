@@ -51,8 +51,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'albertorestifo/github.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -332,3 +332,21 @@ let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#close_symbol  = '×'
 let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
 let g:airline#extensions#tabline#tab_nr_type   = 1
+
+
+" better undo
+set undofile
+set undodir=~/.vim/undodir
+
+"enable deoplete
+let g:deoplete#enable_at_startup = 1
+" neocomplete like
+set completeopt+=noinsert
+" deoplete.nvim recommend
+set completeopt+=noselect
+
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+" deoplete tab" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
