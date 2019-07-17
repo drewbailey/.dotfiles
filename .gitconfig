@@ -5,12 +5,12 @@
 #	email = drew.bailey@excella.com
 [user]
 	email = drew.bailey@stitchfix.com
-	signingkey = F00F1E0CEC4C8B42
+	signingkey = 5524C817A90F4BA0
 	name = Drew Bailey
 [core]
 	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
-	excludesfile = /Users/andrewbailey/.gitignore_global
+	excludesfile = /Users/drewbailey/.gitignore_global
 [alias]
 	lg = log --color --graph\n--pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold\nblue)<%an>%Creset' --abbrev-commit
 
@@ -37,3 +37,5 @@
 	required = true
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg

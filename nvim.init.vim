@@ -50,9 +50,9 @@ Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'albertorestifo/github.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -66,20 +66,13 @@ Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'kaicataldo/material.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 " configure Vundle
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
 " set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-
-" " install Vundle bundles
-" if filereadable(expand("~/.vimrc.bundles.neovim"))
-"   source ~/.vimrc.bundles.neovim
-" endif
-
-" call vundle#end()
 
 " ensure ftdetect et al work by including this after the Vundle stuff
 filetype plugin indent on
@@ -138,10 +131,12 @@ nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call TrimWhitespace()<CR>
 nnoremap <leader>g :GitGutterToggle<CR>
-noremap <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+noremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
 
+" idk why this is a setting but show quotes in .json
+let g:indentLine_conceallevel = 0
 
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
@@ -203,12 +198,8 @@ endif
 set rtp+=/usr/local/opt/fzf
 
 filetype off
-filetype plugin indent off
-filetype plugin indent on
 
 tnoremap <Esc> <C-\><C-n>
-
-
 
 set nocursorline
 
@@ -252,7 +243,6 @@ function! ThemeNord()
   set termguicolors
   set background=dark
   let g:airline_theme='nord'
-  let g:nord_comment_brightness = 20
   colorscheme nord
 endfunction
 
@@ -321,17 +311,18 @@ call ThemeNord()
 set nocursorcolumn
 syntax sync minlines=256
 set re=1
+let g:go_dispatch_enabled=1
 
 
 " Airline Settings
 let g:airline_highlighting_cache = 1
 
-let g:airline#extensions#tabline#enabled       = 1
-let g:airline#extensions#tabline#show_buffers  = 1
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#close_symbol  = '×'
-let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
-let g:airline#extensions#tabline#tab_nr_type   = 1
+" let g:airline#extensions#tabline#enabled       = 1
+" let g:airline#extensions#tabline#show_buffers  = 1
+" let g:airline#extensions#tabline#show_tab_type = 1
+" let g:airline#extensions#tabline#close_symbol  = '×'
+" let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
+" let g:airline#extensions#tabline#tab_nr_type   = 1
 
 
 " better undo
@@ -340,13 +331,13 @@ set undodir=~/.vim/undodir
 
 "enable deoplete
 let g:deoplete#enable_at_startup = 1
+
 " neocomplete like
-set completeopt+=noinsert
+" set completeopt+=noinsert
 " deoplete.nvim recommend
-set completeopt+=noselect
+" set completeopt+=noselect
 
 " deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-" deoplete tab" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd filetype qf wincmd J
