@@ -1,0 +1,35 @@
+{
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": 0,
+    "editor.tabSize": 2,
+    "editor.fontFamily": "Source Code Pro, FiraCode-Retina,  Fira Code, Melno, Hack-Regular, Monaco, 'Courier New', monospace",
+    "editor.fontWeight": "normal",
+    "editor.renderWhitespace": "all",
+    "files.insertFinalNewline": true,
+    "editor.lineHeight": 19,
+    "editor.letterSpacing": 0.3,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.foldfix": true,
+    "vim.leader": ",",
+    "workbench.colorTheme": "Nord",
+    "go.testEnvFile": "${workspaceRoot}/.env",
+    "diffEditor.renderSideBySide": false,
+    "workbench.fontAliasing": "auto",
+    "editor.fontSize": 13,
+    "terminal.external.osxExec": "Iterm.app",
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.fontFamily": "Source Code Pro",
+    "editor.tokenColorCustomizations": {
+        "[Nord]": {
+            "comments": "#6d7a96",
+        }
+    },
+    "editor.formatOnSave": true,
+}
+
