@@ -126,7 +126,7 @@ nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
-nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>t :FZF<CR>
 nnoremap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>] :TagbarToggle<CR>
 nnoremap <leader><space> :call TrimWhitespace()<CR>
@@ -195,7 +195,7 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 " fzf thing
-set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
 
 filetype off
 
