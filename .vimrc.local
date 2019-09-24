@@ -1,4 +1,3 @@
-
 augroup go
   autocmd!
 

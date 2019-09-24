@@ -67,6 +67,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'kaicataldo/material.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'b4b4r07/vim-hcl'
+Plug 'fatih/vim-hclfmt'
 call plug#end()
 
 " configure Vundle
@@ -307,7 +309,6 @@ endfunction
 call ThemeNord()
 
 
-" vim-go things
 set nocursorcolumn
 syntax sync minlines=256
 set re=1
@@ -341,3 +342,4 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 autocmd filetype qf wincmd J
+
