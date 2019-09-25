@@ -58,7 +58,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = xbacklight pulseaudio wlan eth battery date powermenu
+modules-right = xbacklight pulseaudio wlan eth battery date dunst powermenu
 
 tray-position = right
 tray-padding = 2
@@ -81,6 +81,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -380,6 +381,18 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
+[module/dunst]
+type = custom/menu 
+expand-right = true
+format-spacing = 1
+label-open = 
+label-separator = " "
+label-open-foreground = ${colors.secondary}
+menu-0-0 = 
+menu-0-0-exec = notify-send "DUNST_COMMAND_RESUME"
+menu-0-1 = 
+menu-0-1-exec = notify-send "DUNST_COMMAND_PAUSE"
+
 [module/powermenu]
 type = custom/menu
 
@@ -387,7 +400,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
