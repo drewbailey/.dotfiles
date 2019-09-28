@@ -1,7 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export EDITOR='nvim'
 alias notes='nvim ~/notes'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/drew/.oh-my-zsh"
 
