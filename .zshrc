@@ -104,6 +104,8 @@ source $ZSH/oh-my-zsh.sh
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+source ~/.hashicorprc
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . $HOME/.asdf/asdf.sh
