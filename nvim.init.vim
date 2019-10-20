@@ -53,6 +53,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'jodosha/vim-godebug'
 " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
@@ -318,12 +319,13 @@ let g:go_dispatch_enabled=1
 
 " Airline Settings
 let g:airline_highlighting_cache = 1
-
+let g:airline_section_y = ''
+" let g:airline_extensions = []
 " let g:airline#extensions#tabline#enabled       = 1
 " let g:airline#extensions#tabline#show_buffers  = 1
 " let g:airline#extensions#tabline#show_tab_type = 1
 " let g:airline#extensions#tabline#close_symbol  = '×'
-" let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
+let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
 " let g:airline#extensions#tabline#tab_nr_type   = 1
 
 

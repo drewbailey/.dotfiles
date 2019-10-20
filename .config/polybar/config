@@ -57,7 +57,8 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
 modules-center = mpd
-modules-right = xbacklight pulseaudio wlan eth  battery date dunst powermenu
+modules-right = xbacklight pulseaudio  battery date dunst powermenu
+; modules-right = xbacklight pulseaudio wlan eth  battery date dunst powermenu
 
 tray-position = right
 tray-padding = 2
