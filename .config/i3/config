@@ -211,6 +211,7 @@ exec --no-startup-id /usr/bin/python3 /usr/bin/fluxgui
 # Dropbox
 exec --no-startup-id /usr/bin/dropbox start -i
 
+exec --no-startup-id $HOME/.config/polybar/spotify-scripts/launchlistener.sh
 # # dropbox
 
 # exec --no-startup-id dropbox 

@@ -34,6 +34,7 @@ height = 27
 ;offset-y = 1%
 radius = 6.0
 fixed-center = false
+enable-ipc = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -55,9 +56,9 @@ font-0 = SauceCodePro Nerd Font:style=Regular:size=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3
-modules-center = mpd
-modules-right = xbacklight pulseaudio  battery date dunst powermenu
+modules-left = i3
+modules-center =
+modules-right = spotify previous playpause next xbacklight pulseaudio  battery date dunst powermenu
 ; modules-right = xbacklight pulseaudio wlan eth  battery date dunst powermenu
 
 tray-position = right
@@ -421,6 +422,58 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/previous]
+type = custom/script
+interval = 5
+format = "%{T3}<label>"
+format-padding = 5
+; Previous song icon
+exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+
+[module/next]
+type = custom/script
+interval = 5
+format = "%{T3}<label>"
+format-padding = 5
+; Next song icon
+exec = echo ""
+; Check if spotify is running before displaying the icon
+exec-if = "pgrep spotify"
+format-underline = #1db954
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+[module/playpause]
+type = custom/ipc
+; Default
+hook-0 = echo ""
+; Playing
+hook-1 = echo ""
+; Paused
+hook-2 = echo ""
+initial = 1
+format-underline = #1db954
+format-padding = 2
+line-size = 1
+click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
+
+[module/spotify]
+type = custom/ipc
+hook-0 = echo ""
+hook-1 = python3 ~/.config/polybar/spotify-scripts/spotify_status.py
+initial = 1
+format-padding = 4
+format-underline = #1db954
+line-size = 1
+; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
+click-left = i3-msg '[class="Spotify"] focus'
+
 
 [settings]
 screenchange-reload = true
