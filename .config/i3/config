@@ -218,3 +218,7 @@ exec --no-startup-id $HOME/.config/polybar/spotify-scripts/launchlistener.sh
 
 #sound
 # exec --no-startup-id start-pulseaudio-x11
+#
+
+# enable floating window for calendar
+for_window [class="Yad" title="yad-calendar"] floating enable

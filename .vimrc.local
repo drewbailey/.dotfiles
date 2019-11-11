@@ -4,6 +4,8 @@ augroup go
   " Show by default 4 spaces for a tab
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
+  autocmd FileType go nmap <leader>T :GoTestFunc!<CR>
+
   " au FileType go nmap <leader>gt :GoDeclsDir<cr>
 
   " :GoBuild and :GoTestCompile
@@ -133,11 +135,9 @@ let g:syntastic_aggregate_errors = 1
 " " let g:syntastic_go_checkers = ['govet', 'errcheck', 'golint', 'go']
 " set completeopt-=preview
 " " let g:go_list_autoclose = 0
-" let g:go_list_type = "quicklist"
-let g:go_fmt_fail_silently = 0
+" let g:go_list_type="quicklist"
 
 " autocmd FileType go nmap <Leader>i <Plug>(go-info)
-let g:go_fmt_command = "goimports"
 " " /go things
 set foldmethod=syntax
 set foldlevelstart=99

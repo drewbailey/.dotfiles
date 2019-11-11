@@ -58,7 +58,8 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center =
-modules-right = spotify previous playpause next xbacklight pulseaudio  battery date dunst powermenu
+modules-right = spotify previous playpause next xbacklight pulseaudio  battery popup-calendar dunst powermenu
+; modules-right = spotify previous playpause next xbacklight pulseaudio  battery date popup-calendar dunst powermenu
 ; modules-right = xbacklight pulseaudio wlan eth  battery date dunst powermenu
 
 tray-position = right
@@ -427,7 +428,7 @@ menu-2-1-exec = menu-open-0
 type = custom/script
 interval = 5
 format = "%{T3}<label>"
-format-padding = 5
+format-padding = 1
 ; Previous song icon
 exec = echo ""
 ; Check if spotify is running before displaying the icon
@@ -440,7 +441,7 @@ click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org
 type = custom/script
 interval = 5
 format = "%{T3}<label>"
-format-padding = 5
+format-padding = 1
 ; Next song icon
 exec = echo ""
 ; Check if spotify is running before displaying the icon
@@ -459,21 +460,28 @@ hook-1 = echo ""
 hook-2 = echo ""
 initial = 1
 format-underline = #1db954
-format-padding = 2
+format-padding = 1
 line-size = 1
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
 [module/spotify]
 type = custom/ipc
-hook-0 = echo ""
+; hook-0 = python3 ~/.config/polybar/spotify-scripts/spotify_status.py 
+hook-0 = echo "no music"
 hook-1 = python3 ~/.config/polybar/spotify-scripts/spotify_status.py
 initial = 1
 format-padding = 4
 format-underline = #1db954
 line-size = 1
 ; [i3wm only] - Uncomment the below line to focus on Spotify when clicking on the song name (credits to https://github.com/Esya)
+; click-left = i3-msg '[class="Spotify"] focus'
 click-left = i3-msg '[class="Spotify"] focus'
 
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/polybar-scripts/popup-calendar/popup-calendar.sh
+interval = 5
+click-left = ~/.config/polybar/polybar-scripts/popup-calendar/popup-calendar.sh --popup
 
 [settings]
 screenchange-reload = true

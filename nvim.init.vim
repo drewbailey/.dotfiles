@@ -4,6 +4,8 @@ set nocompatible
 " enable syntax highlighting
 syntax enable
 
+set splitright
+
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -50,10 +52,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'albertorestifo/github.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'mdempsky/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
-" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -325,25 +324,31 @@ let g:airline#extensions#tabline#formatter     = 'unique_tail_improved'
 set undofile
 set undodir=~/.vim/undodir
 
-"enable deoplete
-" let g:deoplete#enable_at_startup = 1
-
-" neocomplete like
-" set completeopt+=noinsert
-" deoplete.nvim recommend
-" set completeopt+=noselect
-
-" " deoplete-go settings
-" let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-" let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-" autocmd filetype qf wincmd J
-
 " vim-go settings
+
+" type info
+let g:go_auto_type_info = 1
 
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
-
+let g:go_term_enabled = 1
+" let g:go_term_enabled = 0
+let g:go_term_mode='vsplit'
+let g:go_term_close_on_exit = 0
+let g:go_list_autoclose = 1
+let g:go_fmt_fail_silently = 0
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_list_type_commands={"GoTestFunc!": "", "GoTestFunc": ""}
+let g:go_test_show_name=1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_types = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_format_strings = 1
 " coc completion
 " use <cr> to confirm complete
 "
@@ -440,3 +445,10 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "
 " md settings
 au BufRead,BufNewFile *.md setlocal textwidth=80
+
+" This trigger takes advantage of the fact that the quickfix window can be
+" easily distinguished by its file-type, qf. The wincmd J command is
+" equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
+" the very bottom (see :help :wincmd and :help ^WJ).
+autocmd FileType qf wincmd J
+
