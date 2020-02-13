@@ -5,8 +5,9 @@ augroup go
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
   autocmd FileType go nmap <leader>T :GoTestFunc!<CR>
-
-  " au FileType go nmap <leader>gt :GoDeclsDir<cr>
+  autocmd FileType go set colorcolumn=80
+  
+  au FileType go nmap <leader>gt :GoDeclsDir<cr>
 
   " :GoBuild and :GoTestCompile
   " autocmd FileType go nmap <leader>b :GoBuild<CR>

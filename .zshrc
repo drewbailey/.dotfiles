@@ -4,6 +4,7 @@ export EDITOR='nvim'
 alias notes='nvim ~/notes'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias open='xdg-open'
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/drew/.oh-my-zsh"

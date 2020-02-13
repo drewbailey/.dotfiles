@@ -52,7 +52,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'albertorestifo/github.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -104,7 +104,7 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 
-" Enable basic mouse behavior such as resizing buffers.
+"Enable basic mouse behavior such as resizing buffers.
 set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
   " set ttymouse=xterm2
@@ -326,12 +326,21 @@ set undodir=~/.vim/undodir
 
 " vim-go settings
 
-" type info
-let g:go_auto_type_info = 1
+" disable vim-go keybindings in favor of coc
+let g:go_def_mapping_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
+let g:go_textobj_enabled = 0
+let g:go_gopls_enabled = 0
 
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+"type info
+let g:go_auto_type_info = 0
 
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+" let g:go_def_mode='guru'
+" let g:go_info_mode='guru'
+
+" DISABLE gopls since coc starts it 
 let g:go_term_enabled = 1
 " let g:go_term_enabled = 0
 let g:go_term_mode='vsplit'
@@ -349,6 +358,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_format_strings = 1
+" let g:go_gopls_complete_unimported = 1
+" let g:go_gopls_use_placeholders = 1
+ 
 " coc completion
 " use <cr> to confirm complete
 "
