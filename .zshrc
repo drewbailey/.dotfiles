@@ -5,6 +5,7 @@ alias notes='nvim ~/notes'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias open='xdg-open'
+alias git_clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/drew/.oh-my-zsh"

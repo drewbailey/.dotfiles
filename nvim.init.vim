@@ -204,7 +204,7 @@ function! ThemeLight()
   " set background=dark
   " colorscheme onedark
   set background=light
-  colorscheme solarized8_high
+  colorscheme solarized8
   let g:airline_theme='solarized'
   let g:airline_solarized_bg='light'
 endfunction
@@ -450,7 +450,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 " END coc completion
