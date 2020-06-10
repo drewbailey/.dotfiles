@@ -69,6 +69,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
+Plug 'rakr/vim-two-firewatch'
+Plug 'tpope/vim-rhubarb'
 call plug#end()
 
 " configure Vundle
@@ -161,6 +163,8 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 autocmd BufRead,BufNewFile *.md set spell
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+" makefile real tabs
+autocmd FileType make   set noexpandtab
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
@@ -207,6 +211,17 @@ function! ThemeLight()
   colorscheme solarized8
   let g:airline_theme='solarized'
   let g:airline_solarized_bg='light'
+endfunction
+
+function! ThemeFireWatchLight()
+  syntax on
+  set termguicolors
+  " set background=dark
+  " colorscheme onedark
+  set background=light
+  colorscheme two-firewatch
+  let g:airline_theme='twofirewatch'
+  let g:two_firewatch_italics=1
 endfunction
 
 function! ThemeDark()

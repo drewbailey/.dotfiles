@@ -6,6 +6,7 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias open='xdg-open'
 alias git_clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
+alias nomad-ent='/home/drew/go-ent/bin/nomad'
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/drew/.oh-my-zsh"
@@ -108,7 +109,12 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/drew/.local/bin
 
+
+export WINIT_HIDPI_FACTOR=1
+export WINIT_X11_SCALE_FACTOR=1
+
+
 source ~/.hashicorprc
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
