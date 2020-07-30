@@ -7,7 +7,6 @@ alias pbpaste='xclip -selection clipboard -o'
 alias open='xdg-open'
 alias git_clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 alias nomad-ent='/home/drew/go-ent/bin/nomad'
-
 # Path to your oh-my-zsh installation.
 export ZSH="/home/drew/.oh-my-zsh"
 
@@ -118,3 +117,6 @@ source ~/.hashicorprc
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault
