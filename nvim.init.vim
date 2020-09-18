@@ -373,6 +373,8 @@ let g:go_highlight_types = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_format_strings = 1
+
+let g:go_term_reuse = 1
 " let g:go_gopls_complete_unimported = 1
 " let g:go_gopls_use_placeholders = 1
  
