@@ -364,7 +364,7 @@ let g:go_list_autoclose = 1
 let g:go_fmt_fail_silently = 0
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
-let g:go_list_type_commands={"GoTestFunc!": "", "GoTestFunc": ""}
+let g:go_list_type_commands={"GoTestFunc!": "terminal", "GoTest": "locationlist"}
 let g:go_test_show_name=1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_operators = 0
@@ -469,6 +469,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+map <leader>d :<C-u>call CocActionAsync("jumpDefinition", "vsplit")<CR>
 
 " END coc completion
 "

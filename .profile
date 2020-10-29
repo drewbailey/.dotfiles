@@ -34,4 +34,6 @@ setxkbmap -option caps:ctrl_modifier
 xset r rate 300 30
 
 # hidpi alacritty issue
+export WAYLAND_DISPLAY=alacritty
 export WINIT_HIDPI_FACTOR=1
+export WINIT_UNIX_BACKEND=x11 alacritty
