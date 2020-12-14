@@ -120,3 +120,6 @@ source ~/.hashicorprc
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
+
+# set keyrepeat rate
+xset r rate 250 60

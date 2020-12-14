@@ -71,6 +71,8 @@ Plug 'b4b4r07/vim-hcl'
 Plug 'fatih/vim-hclfmt'
 Plug 'rakr/vim-two-firewatch'
 Plug 'tpope/vim-rhubarb'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 " configure Vundle
@@ -482,3 +484,7 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
+
+" Terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
