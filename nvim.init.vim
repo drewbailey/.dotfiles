@@ -20,7 +20,6 @@ Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'
@@ -471,8 +470,14 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
+" goto def in new vsplit
 map <leader>d :<C-u>call CocActionAsync("jumpDefinition", "vsplit")<CR>
 
+" goto def in new split
+map <leader>x :<C-u>call CocActionAsync("jumpDefinition", "split")<CR>
+
+" goto def in new split
+map <leader>D :<C-u>call CocActionAsync("jumpDefinition", "tab drop")<CR>
 " END coc completion
 "
 " md settings
