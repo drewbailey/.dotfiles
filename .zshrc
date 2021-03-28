@@ -1,15 +1,30 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+whoami="$(uname -s)"
+if [[ $whoami -eq "Darwin" ]]
+then
+elif [[ $whoami -eq "Linux" ]]
+  # mac script friendly commands
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+  alias open='xdg-open'
+
+  xset r rate 250 60
+
+  export WINIT_HIDPI_FACTOR=1
+  export WINIT_X11_SCALE_FACTOR=1
+then
+fi
+
 export EDITOR='nvim'
 alias notes='nvim ~/notes'
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-alias open='xdg-open'
 alias git_clean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d'
 alias nomad-ent='/home/drew/go-ent/bin/nomad'
 # Path to your oh-my-zsh installation.
-export ZSH="/home/drew/.oh-my-zsh"
+# export ZSH="~/.oh-my-zsh"
 
+export ZSH="/Users/drew/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -109,8 +124,6 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/home/drew/.local/bin
 
 
-export WINIT_HIDPI_FACTOR=1
-export WINIT_X11_SCALE_FACTOR=1
 
 
 source ~/.hashicorprc
@@ -122,4 +135,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
 
 # set keyrepeat rate
-xset r rate 250 60
+
