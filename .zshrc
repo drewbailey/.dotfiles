@@ -24,7 +24,7 @@ alias nomad-ent='/home/drew/go-ent/bin/nomad'
 # Path to your oh-my-zsh installation.
 # export ZSH="~/.oh-my-zsh"
 
-export ZSH="/Users/drew/.oh-my-zsh"
+export ZSH="/Users/drewbailey/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -121,7 +121,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/home/drew/.local/bin
+export PATH=$PATH:/home/drewbailey/.local/bin
 
 
 
@@ -136,3 +136,5 @@ complete -o nospace -C /usr/bin/vault vault
 
 # set keyrepeat rate
 
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"

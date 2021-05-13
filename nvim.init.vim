@@ -55,6 +55,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'sebdah/vim-delve'
@@ -67,11 +68,13 @@ Plug 'kaicataldo/material.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'b4b4r07/vim-hcl'
-Plug 'fatih/vim-hclfmt'
+" Plug 'fatih/vim-hclfmt'
 Plug 'rakr/vim-two-firewatch'
 Plug 'tpope/vim-rhubarb'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'hashivim/vim-terraform'
+
+Plug 'uarun/vim-protobuf'
 call plug#end()
 
 " configure Vundle
@@ -146,7 +149,7 @@ let g:indentLine_conceallevel = 0
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 0
+let g:gitgutter_enabled = 1
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
