@@ -1,0 +1,24 @@
+{
+  "coc.preferences.diagnostic.enable": true,
+  "coc.preferences.diagnostic.hoverTarget": "float",
+  "languageserver": {
+    "golang": {
+      "command": "/Users/drewbailey/go/bin/gopls",
+      "args": ["serve", "-debug", "0.0.0.0:8484", "-rpc.trace"],
+      "disableWorkspaceFolders": true,
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        "experimentalWorkspaceModule": true,
+        "expandWorkspaceToModule": true,
+        "allowModfileModifications": true,
+        "allExperiments": true
+      },
+      "env": {
+      }
+    }
+  }
+}
+
