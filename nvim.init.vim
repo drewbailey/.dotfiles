@@ -51,7 +51,8 @@ Plug 'junegunn/seoul256.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'albertorestifo/github.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'master'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'lifepillar/vim-solarized8'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
@@ -73,6 +74,8 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'tpope/vim-rhubarb'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'hashivim/vim-terraform'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'sainnhe/everforest'
 
 Plug 'uarun/vim-protobuf'
 call plug#end()
@@ -142,6 +145,9 @@ nnoremap <leader>g :GitGutterToggle<CR>
 noremap <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 " in case you forgot to sudo
 cnoremap w!! %!sudo tee > /dev/null %
+
+" enable treesitter for nord
+let g:nord_enable_treesitter=1
 
 " idk why this is a setting but show quotes in .json
 let g:indentLine_conceallevel = 0
@@ -258,6 +264,22 @@ function! ThemeNord()
   set background=dark
   let g:airline_theme='nord'
   colorscheme nord
+endfunction
+
+function! ThemeForest()
+  syntax on
+  set termguicolors
+  set background=dark
+  let g:airline_theme='everforest'
+  colorscheme everforest
+endfunction
+
+function! ThemeLightForest()
+  syntax on
+  set termguicolors
+  set background=light
+  let g:airline_theme='everforest'
+  colorscheme everforest
 endfunction
 
 function! ThemeMaterial()
@@ -379,6 +401,10 @@ let g:go_highlight_fields = 1
 let g:go_highlight_format_strings = 1
 
 let g:go_term_reuse = 1
+" test timeout
+"
+let g:go_test_timeout = "45s"
+"
 " let g:go_gopls_complete_unimported = 1
 " let g:go_gopls_use_placeholders = 1
  
@@ -440,8 +466,10 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
@@ -492,7 +520,24 @@ au BufRead,BufNewFile *.md setlocal textwidth=80
 " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
 
+" coc.nvim {{
+let g:coc_global_extensions = [
+      \'coc-git',
+      \'coc-go',
+      \'coc-html',
+      \'coc-json'
+      \]
 
 " Terraform
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+  },
+}
+EOF
